@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fancy CSS Accordion</title>
+  <style>
+    body {
+      background: #f4f6f8;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .accordion {
+      width: 500px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #eee;
+    }
+
+    .accordion input[type="checkbox"] {
+      display: none;
+    }
+
+    .accordion label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      cursor: pointer;
+      font-weight: bold;
+      background: #0077ff;
+      color: #fff;
+      transition: background 0.3s;
+    }
+
+    .accordion label:hover {
+      background: #005fcc;
+    }
+
+    .accordion label::after {
+      content: "＋";
+      font-size: 24px;
+      transition: transform 0.3s;
+    }
+
+    .accordion input:checked + label::after {
+      content: "−";
+      transform: rotate(180deg);
+    }
+
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      background: #f9f9f9;
+      color: #333;
+      padding: 0 24px;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .accordion input:checked + label + .content {
+      max-height: 200px;
+      padding: 18px 24px;
+    }
+
+    .content p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="accordion">
+
+    <div class="accordion-item">
+      <input type="checkbox" id="section1">
+      <label for="section1">💡 Section 1</label>
+      <div class="content">
+        <p>This is some attractive content inside Section 1. You can place anything here—text, images, lists, etc.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <input type="checkbox" id="section2">
+      <label for="section2">🚀 Section 2</label>
+      <div class="content">
+        <p>Section 2 content with smooth animation and modern UI. Easy to reuse and customize.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <input type="checkbox" id="section3">
+      <label for="section3">🎯 Section 3</label>
+      <div class="content">
+        <p>This section expands beautifully without any JavaScript. Just HTML and CSS magic!</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
